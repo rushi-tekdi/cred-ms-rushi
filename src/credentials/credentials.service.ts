@@ -176,7 +176,7 @@ export class CredentialsService {
   async issueCredential(issueRequest: IssueCredentialDTO) {
     try {
       const credInReq = issueRequest.credential;
-      // console.log('credInReq: ', credInReq);
+       console.log('credInReq: ', credInReq);
       /*
       //Code block for unsigned credential
 
@@ -206,6 +206,7 @@ export class CredentialsService {
         verificationMethod: credInReq.issuer,
         proofPurpose: 'assertionMethod',
       };
+      console.log("credInReq",credInReq)
       console.timeEnd('Sign');
       //console.log('onto creation');
 
@@ -247,7 +248,7 @@ export class CredentialsService {
         },
       );
 
-      // console.log('id: ', id.data);
+       console.log('id: ', id);
       credInReq.id = id.data[0]?.id;
 
       // TODO: add created by and updated by
@@ -268,7 +269,7 @@ export class CredentialsService {
           tags: issueRequest.tags,
         },
       });
-
+      console.log('newCred: ', newCred);
       //update counter only when credential has been created successfully
       // await this.prisma.counter.update({
       //   where: { id: seqID.id },
