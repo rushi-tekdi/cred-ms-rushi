@@ -209,7 +209,7 @@ export class CredentialsService {
       console.log("credInReq",credInReq)
       console.timeEnd('Sign');
       //console.log('onto creation');
-
+console.log("started did get");
       //SEQUENTIAL ID LOGIC
       //first credential entry if database is empty
       // if (
@@ -288,6 +288,7 @@ export class CredentialsService {
         tags: newCred.tags, // TODO: add support for tags
       };
     } catch (err) {
+      console.log("err",err);
       throw new InternalServerErrorException(err);
     }
   }
